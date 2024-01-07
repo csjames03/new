@@ -1,7 +1,7 @@
 
 const LogoTitle = () =>{
     return(
-        <div className="text-black z-10">
+        <div className="text-black z-30">
             <p className="text-2xl font-medium">
                 <span className="text-red-700">B</span>lood <span className="text-red-700">B</span>ank
             </p>
