@@ -1,0 +1,26 @@
+'use client'
+import Image from "next/image"
+import { useState } from "react"
+const Searchbar = () =>{
+    const [search, setSearch] = useState("")
+    const searchHandler = (event : React.FormEvent<HTMLFormElement>) =>{
+        event.preventDefault()
+        console.log(searchHandler)
+    }
+    return(
+        <form className="flex justify-between items-center" onSubmit={(e)=>{searchHandler(e)}}>
+            <div className="w-96 rounded-full bg-slate-300 px-3 py-1 flex gap-2">
+                <Image src={'./bi_search.svg'} width={'20'} height={'20'} alt="Search Icon"/>
+                <input className="bg-transparent outline-none text-black w-full h-full py-2" onChange={(event)=>{ setSearch(event.target.value)}} type="text"  />
+            </div>
+            <div className="p-2 w-10 h-10 rounded-full flex justify-center items-center bg-slate-300 mx-5 cursor-pointer">
+                <Image width={20} height={20} src={`./bi_bell.svg`} alt="Bell Icon"/>
+            </div>
+            <div className="p-2 w-10 h-10  rounded-full flex justify-center items-center bg-slate-300 mx-5 cursor-pointer">
+                <Image width={20} height={20} src={`./bi_gear.svg`} alt="Bell Icon"/>
+            </div>
+        </form>
+    )
+}
+
+export default Searchbar
