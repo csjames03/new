@@ -19,7 +19,7 @@ const Sidebar = ({user}: Props) =>{
                 <div onClick={clickHandler} className={`${!isOpen&& ('hidden')} lg:hidden p-4 rounded-full w-5 h-5 cursor-pointer bg-slate-500  absolute -right-4 top-100 z-50 `}>
                 </div>
                 <div className="flex flex-col gap-10 w-full px-2 lg:px-10 ">
-                    <Link href={'/'} className={`flex gap-2 relative  `+ `${user === 'user'? ('block'):('hidden')}`}>
+                    <Link href={'/dashboard'} className={`flex gap-2 relative  `+ `${user === 'user'? ('block'):('hidden')}`}>
                         <Image src={`./dashboard-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
                         <p className={`text-xs md:text-sm font-semibold text-red-500 hover:text-slate-500`}>Dashboard</p>
                     </Link>
