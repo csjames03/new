@@ -20,14 +20,14 @@ const UserContents = () =>{
                         <RequestInfo/>
                     </div>
                 </div>
-                <div className="w-1/2 h-full bg-red-500 p-2 flex flex-col  gap-5">
+                <div className="w-1/2 h-full p-2 flex flex-col  gap-5">
                     <div className="w-full p-2 flex justify-center gap-10 h-36 py-2">
                         <DownloadForm color="blue" title="Request Form"  description="Input Fill-upped form" img="edit-two.svg"/>
-                        <DownloadForm color="teal" title="Request Form"  description="Input Fill-upped form" img="edit-two.svg"/>
+                        <DownloadForm color="blue" title="Donor Form"  description="Input Fill-upped form" img="edit-two.svg"/>
                     </div>
                     <div className="w-full p-2 flex justify-center gap-10 h-36 py-2">
-                        <DownloadForm color="blue" title="Request Form"  description="Input Fill-upped form" img="edit-two.svg"/>
-                        <DownloadForm color="teal" title="Request Form"  description="Input Fill-upped form" img="edit-two.svg"/>
+                        <DownloadForm color="blue" title="Printable Form"  description="Downloadable Request Information form" img="download-icon.svg"/>
+                        <DownloadForm color="blue" title="Printable Form"  description="Downloadable Donor's form" img="download-icon.svg"/>
                     </div>
                 </div>
                 
