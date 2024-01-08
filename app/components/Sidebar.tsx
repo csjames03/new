@@ -9,21 +9,25 @@ const Sidebar = ({user}: Props) =>{
     return(
         <div className=" bg-slate-100 h-full w-56 py-36 z-20 absolute top-0">
             <div className="flex flex-col gap-10 w-full px-10 ">
-                <Link href={'/'} className={`flex gap-2  relative items-center`}>
+                <Link href={'/'} className={`flex gap-2  relative  `+ `${user === 'user'? ('block'):('hidden')}`}>
                     <Image src={`./dashboard-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
-                    <p className={`text-sm font-semibold text-red-500 `}>Dashboard</p>
+                    <p className={`text-sm font-semibold text-red-500 hover:text-slate-500`}>Dashboard</p>
                 </Link>
-                <Link href={'/'} className={`flex gap-2  relative  `+ `${user === 'user'? ('hidden'):('block')}`}>
+                <Link href={'/dashboard'} className={`flex gap-2  relative  `+ `${user === 'user'? ('hidden'):('block')}`}>
+                    <Image src={`./dashboard-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
+                    <p className={`text-sm font-semibold text-red-500 hover:text-slate-500`}>Dashboard</p>
+                </Link>
+                <Link href={'/stocks'} className={`flex gap-2  relative  `+ `${user === 'user'? ('hidden'):('block')}`}>
                     <Image src={`./stocks-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
-                    <p className={`text-sm font-semibold text-red-500 relative  `}>Stocks</p>
+                    <p className={`text-sm font-semibold text-red-500 relative  hover:text-slate-500`}>Stocks</p>
                 </Link>
-                <Link href={'/'} className={`flex gap-2  `+ `${user === 'user'? ('hidden'):('block')}`}>
+                <Link href={'/requests'} className={`flex gap-2  `+ `${user === 'user'? ('hidden'):('block')}`}>
                     <Image src={`./requests-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
-                    <p className={`text-sm font-semibold text-red-500 relative  `}>Requests</p>
+                    <p className={`text-sm font-semibold text-red-500 relative hover:text-slate-500 `}>Requests</p>
                 </Link>
-                <Link href={'/'} className={`flex gap-2  `+ `${user === 'user'? ('hidden'):('block')}`}>
+                <Link href={'/donations'} className={`flex gap-2  `+ `${user === 'user'? ('hidden'):('block')}`}>
                     <Image src={`./donations-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
-                    <p className={`text-sm font-semibold text-red-500 relative  `}>Donations</p>
+                    <p className={`text-sm font-semibold text-red-500 relative hover:text-slate-500 `}>Donations</p>
                 </Link>
             </div>
             <Image className="w-full absolute bottom-0" src={'./Group 1135.svg'} width={56} height={100} alt="Background"/>

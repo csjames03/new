@@ -16,7 +16,15 @@ const Searchbar = () =>{
     }
 
     return(
-        <form className="flex justify-between items-center" onSubmit={(e)=>{searchHandler(e)}}>
+        <form className="flex justify-between items-center gap-5" onSubmit={(e)=>{searchHandler(e)}}>
+            <div className="text-xs font-bold lg:hidden">
+                <p className="font-medium">
+                    <span className="text-red-700">B</span>lood <span className="text-red-700">B</span>ank
+                </p>
+                <p className=" font-medium">
+                    <span className="text-red-700">M</span>anagement <span className="text-red-700">S</span>ystem
+                </p>
+            </div>
             <div onClick={clickSearchHandler} className="w-96 rounded-full bg-slate-300 px-3 py-1 flex gap-2">
                 <Image onClick={clickSearchHandler} src={'./bi_search.svg'} width={'20'} height={'20'} alt="Search Icon"/>
                 <input ref={inputRef} className="bg-transparent outline-none text-black w-full h-full py-2" onChange={(event)=>{ setSearch(event.target.value)}} type="text"  />

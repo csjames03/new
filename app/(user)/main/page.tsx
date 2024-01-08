@@ -3,7 +3,7 @@ import Sidebar from "@/app/components/Sidebar"
 import UserContents from "@/app/components/UserContents"
 
 const Main = () => {
-  const user = 'admin'
+  const user = 'user'
   return (
     <div className="bg-slate-50">
       <Navbar/>
