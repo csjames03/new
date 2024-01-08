@@ -5,7 +5,7 @@ import UserContents from "@/app/components/UserContents"
 const Main = () => {
   const user = 'user'
   return (
-    <div className="bg-slate-50">
+    <div className="bg-slate-50 overflow-x-hidden">
       <Navbar/>
       <Sidebar user={user}/>
       <UserContents/>
