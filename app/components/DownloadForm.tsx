@@ -10,7 +10,7 @@ type Props = {
 
 const DownloadForm = ({ img, title, description}:Props) =>{
     return(
-        <div className={`w-42 h-36 px-2 py-4 hover:bg-teal-500 rounded-2xl bg-teal-400 flex flex-col items-center justify-center cursor-pointer`}>
+        <div className={`w-36 md:w-42 h-36 px-2 py-4 hover:bg-teal-500 rounded-2xl bg-teal-400 flex flex-col items-center justify-center cursor-pointer`}>
             <div className={`p-4 rounded-full bg-teal-700 flex justify-center items-center`}>
                 <Image   src={`./${img}`} width={20} height={20} alt="Icon"/>
             </div>

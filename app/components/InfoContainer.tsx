@@ -44,21 +44,21 @@ const InfoContainer = () =>{
         }
     ]
     return(
-        <div className="w-10/12 h-26 bg-red-200 rounded-xl p-4 flex flex-col justify-center items-center relative">
+        <div className="w-full lg:w-10/12 h-26 bg-red-200 rounded-xl p-4 flex flex-col justify-center items-center relative">
             <div className="w-full flex justify-between items-center">
-                <p className="text-xl font-bold text-red-800 text-nowrap">In Stock</p>
+                <p className="text-xl font-semibold  md:font-bold text-red-800 text-nowrap">In Stock</p>
                 <p className="text-xs font-semibold text-red-800 text-nowrap">15 March 2022</p>
             </div>
-            <div className="flex w-3/4 justify-center items-center gap-5 p-2 mb-6">
+            <div className="flex w-3/4 justify-center items-center gap-1 lg:gap-5 p-2 mb-6">
                 {
                     fakeDatas.map(data =>(
                         <InfoBox key={data.id}  bt={data.bt} stock={data.stock}/>
                     ))
                 }
             </div>
-            <div className="flex flex-col justify-center items-center absolute left-0 ml-4 bottom-0 mb-4">
+            <div className="flex flex-col justify-center items-center absolute left-0 ml-2 lg::ml-4 bottom-0 lg:mb-4">
                 <p className="font-semibold text-xs text-red-800">Total</p>
-                <p className="font-bold text-2xl text-red-800">12</p>
+                <p className="font-bold text-xl md:text-2xl text-red-800">12</p>
             </div>
         </div>
     )

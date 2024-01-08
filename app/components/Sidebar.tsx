@@ -45,7 +45,7 @@ const Sidebar = ({user}: Props) =>{
             </div>
         )}else{
             return(
-                <div onClick={clickHandler} className={`${isOpen&& ('hidden')} lg:hidden p-4 rounded-full w-5 h-5 cursor-pointer bg-slate-500  absolute left-0 top-[250px] z-50 `}>
+                <div onClick={clickHandler} className={`${isOpen&& ('hidden')} lg:hidden p-4 rounded-full w-5 h-5 cursor-pointer bg-slate-500  absolute -left-4 top-[250px] z-50 `}>
                 </div>
             )
         }
