@@ -8,7 +8,6 @@ const Dashboard = () =>{
         <div>
             <Navbar/>
             <Sidebar user={user}/>
-            <UserContents/>
         </div>
     )
 }
