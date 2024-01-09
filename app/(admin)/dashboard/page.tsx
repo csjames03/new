@@ -1,11 +1,13 @@
 import Navbar from "@/app/components/Navbar"
 import Sidebar from "@/app/components/Sidebar"
-import UserContents from "@/app/components/UserContents"
 import SmallInfoContainer from "@/app/components/SmallInfoContainer"
+import DonationsInfoContainer from "@/app/components/DonationsInfoContainer"
+
+
 const Dashboard = () =>{
     const user = "admin"
     return(
-        <div>
+        <div >
             <Navbar/>
             <Sidebar user={user}/>
             <div className="absolute right-0 w-full  lg:w-11/12 lg:pl-36 h-full top-0 p-2 pt-24 lg:p-24 bg-transparent">
@@ -14,6 +16,28 @@ const Dashboard = () =>{
                     <SmallInfoContainer />
                     <SmallInfoContainer />
                     <SmallInfoContainer />
+                </div>
+                <div className="absolute flex w-full lg:w-10/12 py-2 overflow-hidden">
+                    <div className="w-2/6">
+                        <p className="text-black text-sm font-semibold">Most Recent Donations</p>
+                        <div className="w-full h-[430px] py-2 px-4 flex flex-col items-center gap-2 overflow-y-auto ">
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                            <DonationsInfoContainer/>
+                        </div>
+                    </div>
+                    <div className="w-4/6">
+
+                    </div>
                 </div>
                 
             </div>
