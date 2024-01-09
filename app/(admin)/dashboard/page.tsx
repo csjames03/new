@@ -17,10 +17,10 @@ const Dashboard = () =>{
                     <SmallInfoContainer />
                     <SmallInfoContainer />
                 </div>
-                <div className="absolute flex w-full lg:w-10/12 py-2 overflow-hidden">
-                    <div className="w-2/6">
+                <div className="absolute flex flex-col md:flex-row w-full lg:w-10/12 py-2 overflow-hidden">
+                    <div className="w-full md:w-2/6">
                         <p className="text-black text-sm font-semibold">Most Recent Donations</p>
-                        <div className="w-full h-[430px] py-2 px-4 flex flex-col items-center gap-2 overflow-y-auto ">
+                        <div className="w-full h-[200px] md:h-[430px] py-2 px-4 md:flex flex-col items-center:gap-2 overflow-y-auto ">
                             <DonationsInfoContainer/>
                             <DonationsInfoContainer/>
                             <DonationsInfoContainer/>

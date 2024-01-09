@@ -2,7 +2,7 @@ import Image from "next/image"
 
 const DonationsInfoContainer = () =>{
     return(
-        <div className="flex w-full justify-between bg-slate-200 hover:bg-slate-300 cursor-pointer rounded-xl p-2">
+        <div className="flex w-full mt-2 justify-between bg-slate-200 hover:bg-slate-300 cursor-pointer rounded-xl p-2">
             <div className="flex gap-2">
                 <Image className="w-10 h-10 rounded-full" src={'./1211442310.jpg 1.svg'} width={20} height={20} alt="Profile" />
                 <div className="h-full  flex flex-col justify-center">
