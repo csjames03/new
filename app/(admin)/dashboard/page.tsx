@@ -2,7 +2,7 @@ import Navbar from "@/app/components/Navbar"
 import Sidebar from "@/app/components/Sidebar"
 import SmallInfoContainer from "@/app/components/SmallInfoContainer"
 import DonationsInfoContainer from "@/app/components/DonationsInfoContainer"
-
+import RequestInfo from "@/app/components/RequestInfo"
 
 const Dashboard = () =>{
     const user = "admin"
@@ -35,8 +35,20 @@ const Dashboard = () =>{
                             <DonationsInfoContainer/>
                         </div>
                     </div>
-                    <div className="w-4/6">
-
+                    <div className="w-full md:w-4/6">
+                        <p className="text-black text-sm font-semibold md:ml-6">Most Recent Donations</p>
+                        <div className="w-full h-[200px] md:h-[430px] flex flex-col gap-2 px-4  md:px-12 py-2 overflow-y-auto">
+                            <RequestInfo />
+                            <RequestInfo />
+                            <RequestInfo />
+                            <RequestInfo />
+                            <RequestInfo />
+                            <RequestInfo />
+                            <RequestInfo />
+                            <RequestInfo />
+                            <RequestInfo />
+                            <RequestInfo />
+                        </div>
                     </div>
                 </div>
                 
