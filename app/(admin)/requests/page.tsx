@@ -2,6 +2,7 @@ import Navbar from "@/app/components/Navbar"
 import Sidebar from "@/app/components/Sidebar"
 import DownloadForm from "@/app/components/DownloadForm"
 import BloodTypesContainer from "@/app/components/BloodTypesContainer"
+import DonorsInfoContainer from "@/app/components/DonorsInfoContainer"
 import { RecievedData } from "@/app/data"
 
 const Requests = () =>{
@@ -46,8 +47,8 @@ const Requests = () =>{
                 </div>
                 <div>
                     <p className="text-black text-sm font-semibold">Types</p>
-                    <div className="w-full  mt-2 flex flex-col md:flex-row gap-2">
-                        <div className="w-full h-[420px] overflow-x-auto md:w-4/12 px-4 py-2 grid grid-flow-row-dense grid-cols-1 md:grid-cols-2  gap-1">
+                    <div className="w-full  mt-2 flex flex-col md:flex-row gap-2 items-center">
+                        <div className="w-full h-[11.5rem] md:h-[420px] overflow-x-auto md:w-4/12 px-4 py-2 grid gap-[150px] grid-cols-8 md:grid-cols-1 lg:grid-cols-2 md:gap-1 ">
                               <BloodTypesContainer />
                               <BloodTypesContainer />
                               <BloodTypesContainer />
@@ -57,8 +58,20 @@ const Requests = () =>{
                               <BloodTypesContainer />
                               <BloodTypesContainer />
                         </div>
-                        <div className="w-full overflow-y-auto md:w-8/12">
-                            s   
+                        <div className="w-full h-[420px] overflow-y-auto md:w-8/12 px-4 py-2 grid grid-flow-row-dense grid-cols-1 lg:grid-cols-2  gap-1">
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
+                            <DonorsInfoContainer />
                         </div>
                     </div>
                 </div>
