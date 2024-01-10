@@ -38,7 +38,7 @@ const Requests = () =>{
                             </div>
                         </div>
                     </div>
-                    <div className="w-full md:w-4/12 flex gap-2 px-5">
+                    <div className="w-full md:w-4/12 flex gap-2 md:px-5 justify-center items-center">
                         <DownloadForm title="Printable Form"  description="Downloadable Donor's form" img="download-icon.svg"/>
                         <DownloadForm title="Printable Form"  description="Downloadable Donor's form" img="download-icon.svg"/>
                     </div>
