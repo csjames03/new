@@ -47,4 +47,44 @@ const stockData: Stock[] = [
     }
 ];
 
-export { stockData }
+type Recieved = {
+    bloodType: string,
+    total: number,
+}
+
+const RecievedData: Recieved[] = [
+    {
+        bloodType: 'A+',
+        total: 20,
+    },
+    {
+        bloodType: 'A-',
+        total: 30,
+    },
+    {
+        bloodType: 'B+',
+        total: 10,
+    },
+    {
+        bloodType: 'B-',
+        total: 25,
+    },
+    {
+        bloodType: 'AB+',
+        total: 28,
+    },
+    {
+        bloodType: 'AB-',
+        total: 99,
+    },
+    {
+        bloodType: 'O+',
+        total: 100,
+    },
+    {
+        bloodType: 'O-',
+        total: 76,
+    },
+]
+
+export { stockData, RecievedData }
