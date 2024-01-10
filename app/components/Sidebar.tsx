@@ -1,4 +1,5 @@
 'use client'
+import { usePathname } from "next/navigation"
 
 import Image from "next/image"
 import Link from "next/link"
@@ -9,6 +10,8 @@ type Props = {
 
 const Sidebar = ({user}: Props) =>{
     const [isOpen, setIsOpen] = useState(true)
+    const pathname = usePathname()
+    console.log(pathname)
 
     const clickHandler = () =>{
         setIsOpen(!isOpen)
@@ -21,23 +24,23 @@ const Sidebar = ({user}: Props) =>{
                 <div className="flex flex-col gap-10 w-full px-2 lg:px-10 ">
                     <Link href={'/dashboard'} className={`flex gap-2 relative  `+ `${user === 'user'? ('block'):('hidden')}`}>
                         <Image src={`./dashboard-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
-                        <p className={`text-xs md:text-sm font-semibold text-red-500 hover:text-slate-500`}>Dashboard</p>
+                        <p className={`text-xs md:text-sm font-semibold ${(pathname === '/dashboard')?('text-slate-500'):('text-red-500')} hover:text-slate-500`}>Dashboard</p>
                     </Link>
                     <Link href={'/dashboard'} className={`flex gap-2  relative  `+ `${user === 'user'? ('hidden'):('block')}`}>
                         <Image src={`./dashboard-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
-                        <p className={`text-xs md:text-sm  font-semibold text-red-500 hover:text-slate-500`}>Dashboard</p>
+                        <p className={`text-xs md:text-sm  font-semibold ${(pathname === '/dashboard')?('text-slate-500'):('text-red-500')} hover:text-slate-500`}>Dashboard</p>
                     </Link>
                     <Link href={'/stocks'} className={`flex gap-2  relative  `+ `${user === 'user'? ('hidden'):('block')}`}>
                         <Image src={`./stocks-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
-                        <p className={`text-xs md:text-sm  font-semibold text-red-500 relative  hover:text-slate-500`}>Stocks</p>
+                        <p className={`text-xs md:text-sm  font-semibold ${(pathname === '/stocks')?('text-slate-500'):('text-red-500')} relative  hover:text-slate-500`}>Stocks</p>
                     </Link>
                     <Link href={'/requests'} className={`flex gap-2  `+ `${user === 'user'? ('hidden'):('block')}`}>
                         <Image src={`./requests-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
-                        <p className={`text-xs md:text-sm  font-semibold text-red-500 relative hover:text-slate-500 `}>Requests</p>
+                        <p className={`text-xs md:text-sm  font-semibold ${(pathname === '/requests')?('text-slate-500'):('text-red-500')} relative hover:text-slate-500 `}>Requests</p>
                     </Link>
                     <Link href={'/donations'} className={`flex gap-2  `+ `${user === 'user'? ('hidden'):('block')}`}>
                         <Image src={`./donations-icon.svg`} width={20} height={20} alt="Dashboard Icon"/>
-                        <p className={`text-xs md:text-sm  font-semibold text-red-500 relative hover:text-slate-500 `}>Donations</p>
+                        <p className={`text-xs md:text-sm  font-semibold ${(pathname === '/donations')?('text-slate-500'):('text-red-500')} relative hover:text-slate-500 `}>Donations</p>
                     </Link>
                 </div>
                 <Image className="w-full absolute bottom-0" src={'./Group 1135.svg'} width={56} height={100} alt="Background"/>
