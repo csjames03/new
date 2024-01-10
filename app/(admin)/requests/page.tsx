@@ -1,6 +1,7 @@
 import Navbar from "@/app/components/Navbar"
 import Sidebar from "@/app/components/Sidebar"
 import DownloadForm from "@/app/components/DownloadForm"
+import BloodTypesContainer from "@/app/components/BloodTypesContainer"
 import { RecievedData } from "@/app/data"
 
 const Requests = () =>{
@@ -41,6 +42,24 @@ const Requests = () =>{
                     <div className="w-full md:w-4/12 flex gap-2 md:px-5 justify-center items-center">
                         <DownloadForm title="Printable Form"  description="Downloadable Donor's form" img="download-icon.svg"/>
                         <DownloadForm title="Printable Form"  description="Downloadable Donor's form" img="download-icon.svg"/>
+                    </div>
+                </div>
+                <div>
+                    <p className="text-black text-sm font-semibold">Types</p>
+                    <div className="w-full  mt-2 flex flex-col md:flex-row gap-2">
+                        <div className="w-full h-[420px] overflow-x-auto md:w-4/12 px-4 py-2 grid grid-flow-row-dense grid-cols-1 md:grid-cols-2  gap-1">
+                              <BloodTypesContainer />
+                              <BloodTypesContainer />
+                              <BloodTypesContainer />
+                              <BloodTypesContainer />
+                              <BloodTypesContainer />
+                              <BloodTypesContainer />
+                              <BloodTypesContainer />
+                              <BloodTypesContainer />
+                        </div>
+                        <div className="w-full overflow-y-auto md:w-8/12">
+                            s   
+                        </div>
                     </div>
                 </div>
             </div>
