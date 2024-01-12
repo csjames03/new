@@ -1,22 +1,14 @@
-import mongoose, { Schema, Model, Document } from 'mongoose';
+
+import mongoose from 'mongoose';
+
 
 mongoose.connect(process.env.MONGODB_URI!);
 
-mongoose.Promise = global.Promise;
+const db = mongoose.connection;
 
-interface UserDocument extends Document {
-  name: string;
-  email: string;
-}
-
-const userSchema: Schema<UserDocument> = new Schema({
-  name: String,
-  email: String,
-}, {
-  timestamps: true,
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+    console.log('Connected to MongoDB');
 });
 
-
-const User: Model<UserDocument> = mongoose.model<UserDocument>("User", userSchema);
-
-export { User };
+export default mongoose;
