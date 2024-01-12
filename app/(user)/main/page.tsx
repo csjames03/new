@@ -2,7 +2,7 @@ import Navbar from "@/app/components/Navbar"
 import Sidebar from "@/app/components/Sidebar"
 import UserContents from "@/app/components/UserContents"
 
-const Main = () => {
+const Main = async() => {
   const user = 'user'
   return (
     <div className="bg-slate-50 overflow-x-hidden">
@@ -14,6 +14,7 @@ const Main = () => {
 
 
       }
+     
     </div>
   )
 }
