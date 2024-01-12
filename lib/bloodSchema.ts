@@ -15,4 +15,4 @@ export interface BloodDocument extends Document{
 }
 
 
-export const Donor: Model<BloodDocument> = mongoose.models.Blood || mongoose.model<BloodDocument>('Blood', bloodSchema);
+export const Blood: Model<BloodDocument> = mongoose.models.Blood || mongoose.model<BloodDocument>('Blood', bloodSchema);
