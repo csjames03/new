@@ -48,9 +48,27 @@ export async function PUT(request: Request, response: Response){
             }
         })
 
-        return NextResponse.json(data, {status: 200})
+        return NextResponse.json(blood, {status: 200})
     }catch(error){
         console.log(error);
         return NextResponse.json(response, {'status': 500})
+    }
+}
+
+export async function DELETE(request: Request, response: Response){
+    try{
+        const bodyText = await request.text()
+        const data = await JSON.parse(bodyText)
+        const deleteBlood = await prisma.blood.delete({
+            where: {
+                id: data.id,
+            }
+        })
+
+        return NextResponse.json(deleteBlood, {'status': 200})
+
+    }catch(error){
+        console.log(error);
+        return NextResponse.json(error, {status: 500})
     }
 }
