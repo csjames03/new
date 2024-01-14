@@ -3,16 +3,6 @@ import { CreateDonorBodyValidator } from "@/app/middleware/middleware";
 import { DataType } from "@/app/middleware/middleware";
 import prisma from "@/app/db";
 
-/*
-fname         String
-  lname         String
-  mname         String
-  address       String
-  age           Int
-  contact       String
-  medicalStatus String
-  sex           String
-*/
 export async function POST(request: Request, response: NextResponse){
     try{
         const body = await request.text()
@@ -58,3 +48,21 @@ export async function GET(response: Response){
         return NextResponse.json({error},{'status': 50});
     }
 }
+
+export async function DELETE(request: Request, response: Response){
+    try{
+        const bodyText = await request.text()
+        const data = JSON.parse(bodyText)
+        const deleteDonor = await prisma.donor.delete({
+            where: {'id': data.id},
+        })
+
+        return NextResponse.json(deleteDonor, {'status': 200})
+
+    }catch(error){
+        console.log(error)
+        return NextResponse.json({error},{'status': 500});
+    }
+}
+
+
