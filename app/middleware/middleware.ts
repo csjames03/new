@@ -1,12 +1,12 @@
 export type DataType = {
-    address: string;
-    age: number;
-    contact: string;
-    firstName: string;
-    lastName: string;
-    middleName: string;
-    medicalStatus: string;
-    sex: string;
+    fname: string
+    lname: string
+    mname: string
+    address: string
+    age: number
+    contact: string
+    medicalStatus: string
+    sex: string
   };
   
   export const CreateDonorBodyValidator = (data: DataType, fields: (keyof DataType)[]): { message: string }[] | undefined => {
