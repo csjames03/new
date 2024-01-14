@@ -37,6 +37,40 @@ export async function POST(request: Request, response: NextResponse){
 
 }
 
+export async function PUT(request: Request, response: Response){
+    try{
+        const textBody = await request.text()
+        const data = await JSON.parse(textBody)
+        const fieldsThatNeedsValidation: (keyof DataType)[] = ["fname", "lname", "mname", "address", "age", "contact", "medicalStatus", "sex"];
+        const validate = CreateDonorBodyValidator(data, fieldsThatNeedsValidation);
+
+        if(validate != undefined) {
+            console.log(validate)
+            return NextResponse.json(validate)
+        }
+        
+        const editDonor = await prisma.donor.update({
+            where:{
+                id: data.id,
+            },
+            data:{
+                fname: data.fname,
+                mname: data.mname,
+                lname: data.lname,
+                address: data.address,
+                age: data.age,
+                contact: data.contact,
+                medicalStatus: data.medicalStatus,
+                sex: data.sex
+            }
+        })
+        return NextResponse.json(editDonor, {'status': 200})
+        
+    }catch(error){
+        console.log(error)
+        return NextResponse.json({error},{'status': 500})
+    }
+}
 
 export async function GET(response: Response){
     try{
@@ -48,6 +82,8 @@ export async function GET(response: Response){
         return NextResponse.json({error},{'status': 50});
     }
 }
+
+
 
 export async function DELETE(request: Request, response: Response){
     try{
