@@ -62,8 +62,8 @@ model Requests {
 }
 
 model BloodBank {
-  id     String @id @default(uuid())
-  bloods Int
-  type   String
-  rh     String
+  id   String @id @default(uuid())
+  bags Int
+  type String
+  rh   String
 }
