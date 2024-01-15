@@ -1,7 +1,36 @@
 "use server"
-import type { Donor, Blood, Hospital } from "@prisma/client"
+
 import prisma from "../db"
 import { json } from "stream/consumers"
+
+type Donor = {
+    id: string;
+    fname: string;
+    lname: string;
+    mname: string;
+    address: string;
+    age: number;
+    contact: string;
+    medicalStatus: string;
+    sex: string;
+  };
+  
+  // Blood Type
+  type Blood = {
+    id: string;
+    bags: number;
+    location: string;
+    rh: string;
+    type: string;
+  };
+  
+  // Hospital Type
+  type Hospital = {
+    id: string;
+    address: string;
+    contact: string;
+    name: string;
+  };
 
 export const getAllDonors = async () => {
     try{
@@ -66,6 +95,24 @@ export const insertBlood = async (bags:number, location:string, rh:string, type:
         })
         console.log(createBlood)
         return createBlood
+    }catch(error){
+        console.log(error)
+        return {message: "Internal server error"}
+    }
+}
+
+
+export const insertHospital = async (address: string, contact: string, name: string) => {
+    try{
+        const createHospital: Hospital = await prisma.hospital.create({
+            data: {
+                address,
+                contact,
+                name
+            }
+        })
+        console.log(createHospital)
+        return createHospital
     }catch(error){
         console.log(error)
         return {message: "Internal server error"}
