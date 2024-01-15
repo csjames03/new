@@ -118,3 +118,26 @@ export const insertHospital = async (address: string, contact: string, name: str
         return {message: "Internal server error"}
     }
 }
+
+
+export const insertDonor = async (fname: string, lname: string, mname: string,address: string, age: number, contact: string, medicalStatus: string, sex: string) =>{
+    try{
+        const createDonor: Donor = await prisma.donor.create({
+            data:{
+                fname,
+                lname,
+                mname,
+                address,
+                age,
+                contact,
+                medicalStatus,
+                sex
+            }
+        })
+        console.log(createDonor)
+        return createDonor
+    }catch(error){
+        console.log(error)
+        return {message: "Internal server error"}
+    }
+}
