@@ -1,5 +1,5 @@
 "use server"
-import type { Donor, Blood } from "@prisma/client"
+import type { Donor, Blood, Hospital } from "@prisma/client"
 import prisma from "../db"
 import { json } from "stream/consumers"
 
@@ -24,4 +24,15 @@ export const getAllBloods = async () => {
         return {error: "Failed to fetch the bloods"}
     }
 
+}
+
+
+export const getAllHospitals = async () => {
+    try{
+        const hospitals:Hospital[] = await prisma.hospital.findMany()
+        console.log(hospitals)
+        return hospitals
+    }catch(error){
+        return {error: "Failed to fetch the hospitals"}
+    }
 }

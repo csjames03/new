@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { useState, useRef } from "react"
 import Link from "next/link"
-import { getAllDonors } from "../serverActions/serverAction"
+import { getAllDonors, getAllHospitals, getAllBloods } from "../serverActions/serverAction"
 
 const Searchbar = () =>{
     const [search, setSearch] = useState("")
@@ -11,6 +11,11 @@ const Searchbar = () =>{
         event.preventDefault()
         console.log(search)
         const donors = await getAllDonors()
+        console.log(donors)
+        const bloods = await getAllBloods()
+        console.log(bloods)
+        const hospitals = await getAllBloods()
+        console.log(hospitals)
     }
 
     const clickSearchHandler = () => {
