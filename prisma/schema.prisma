@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Donor {
-  id            String @id @default(uuid())
+  id            String    @id @default(uuid())
   fname         String
   lname         String
   mname         String
@@ -20,19 +20,50 @@ model Donor {
   contact       String
   medicalStatus String
   sex           String
+  donates       Donates[]
 }
 
 model Blood {
-  id       String @id @default(uuid())
+  id       String     @id @default(uuid())
   bags     Int
   location String
   rh       String
   type     String
+  donates  Donates[]
+  request  Requests[]
 }
 
 model Hospital {
+  id       String     @id @default(uuid())
+  address  String
+  contact  String
+  name     String
+  Requests Requests[]
+}
+
+model Donates {
   id      String @id @default(uuid())
-  address String
-  contact String
-  name    String
+  donorId String
+  donor   Donor  @relation(fields: [donorId], references: [id])
+  bloodId String
+  blood   Blood  @relation(fields: [bloodId], references: [id])
+}
+
+model Requests {
+  id             String   @id @default(uuid())
+  doctor         String
+  progress       String
+  requestedAt    DateTime @default(now())
+  requestedBags  Int
+  requestedBlood String
+  reqBlood       Blood    @relation(fields: [requestedBlood], references: [id])
+  requestedBy    String
+  request        Hospital @relation(fields: [requestedBy], references: [id])
+}
+
+model BloodBank {
+  id     String @id @default(uuid())
+  bloods Int
+  type   String
+  rh     String
 }
