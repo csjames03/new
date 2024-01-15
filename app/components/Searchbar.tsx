@@ -2,26 +2,26 @@
 import Image from "next/image"
 import { useState, useRef } from "react"
 import Link from "next/link"
-import { getAllDonors, getAllHospitals, getAllBloods, } from "../serverActions/serverAction"
+import { getAllDonors, getAllHospitals, getAllBloods, insertBlood, createBloodBank, getBloodBank} from "../serverActions/serverAction"
 
 const Searchbar = () =>{
     const [search, setSearch] = useState("")
     const inputRef = useRef<HTMLInputElement>(null)
     const searchHandler = async(event : React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault()
-        console.log(search)
-        const donors = await getAllDonors()
-        console.log(donors)
-        const blood = await getAllBloods()
-        console.log(blood)
-        const hospitals = await getAllHospitals()
-        console.log(hospitals)
+        const insert = await insertBlood(10, "Iligan City", "+", "A")
+        console.log(insert)
+        const after = await getBloodBank()
+        console.log(after)
     }
 
-    const clickSearchHandler = () => {
+    const clickSearchHandler = async () => {
         if(inputRef.current){
             inputRef.current.focus()
         }
+        console.log(search)
+        const before = await getBloodBank()
+        console.log(before)
     }
 
     return(

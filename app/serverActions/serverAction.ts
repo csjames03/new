@@ -23,6 +23,13 @@ type Donor = {
     rh: string;
     type: string;
   };
+
+  type BloodBank = {
+    id: string;
+    bags: number;
+    type: string;
+    rh: string;
+  }
   
   // Hospital Type
   type Hospital = {
@@ -40,6 +47,18 @@ export const getAllDonors = async () => {
     }catch(error){
         console.log(error)
         return {error: "Failed to fetch the donors"}
+    }
+}
+
+export const getBloodBank = async () => {
+    try{
+        const bloods:BloodBank[] = await prisma.bloodBank.findMany()
+        console.log(bloods)
+        return bloods
+
+    }catch(error){
+        console.log(error)
+        return {message: "Internal server error"}
     }
 }
 
@@ -99,6 +118,42 @@ const updatingApprovedBloodRequest = async (requestedBags: number, type: string,
                 id: bloodFromBank[0].id
             },
             data:{
+                bags: value,
+                rh,
+                type
+            }
+
+        })
+
+        console.log(updatedBlood)
+        return updatedBlood
+        
+    }catch(error){
+        console.log(error)
+        return {message: "Internal server error"}
+    }
+}
+
+const updatingBloodForDonates = async (donatedBags: number, type: string, rh: string) =>{
+    try{
+        const bloodFromBank = await prisma.blood.findMany({
+            where:{
+                type,
+                rh,
+            }
+        })
+
+        if(!bloodFromBank){
+            console.log("No blood from bank found with type " + type +" rh "+ rh)
+            return {message : "Internal server error"}
+        }
+        const value = bloodFromBank[0].bags + donatedBags
+
+        const updatedBlood = await prisma.bloodBank.update({
+            where:{
+                id: bloodFromBank[0].id
+            },
+            data:{
                 bags: value
             }
 
@@ -125,6 +180,7 @@ export const insertBlood = async (bags:number, location:string, rh:string, type:
             }
         })
         console.log(createBlood)
+        updatingBloodForDonates(bags, type,rh)
         return createBlood
     }catch(error){
         console.log(error)
@@ -167,6 +223,22 @@ export const insertDonor = async (fname: string, lname: string, mname: string,ad
         })
         console.log(createDonor)
         return createDonor
+    }catch(error){
+        console.log(error)
+        return {message: "Internal server error"}
+    }
+}
+
+export const createBloodBank = async (bags: number, type: string, rh: string) => {
+    try{
+        const c = await prisma.bloodBank.create({
+            data:{
+                bags,
+                type,
+                rh
+            }
+        })
+        return c
     }catch(error){
         console.log(error)
         return {message: "Internal server error"}
