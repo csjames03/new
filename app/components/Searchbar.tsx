@@ -12,9 +12,9 @@ const Searchbar = () =>{
         console.log(search)
         const donors = await getAllDonors()
         console.log(donors)
-        const bloods = await getAllBloods()
-        console.log(bloods)
-        const hospitals = await getAllBloods()
+        const blood = await getAllBloods()
+        console.log(blood)
+        const hospitals = await getAllHospitals()
         console.log(hospitals)
     }
 

@@ -36,3 +36,38 @@ export const getAllHospitals = async () => {
         return {error: "Failed to fetch the hospitals"}
     }
 }
+
+export const getBloodByType = async () => {
+    try{
+        const blood:Blood[] = await prisma.blood.findMany({
+            where:{
+                type: "A"
+            }
+        })
+        console.log(blood)
+        return blood
+
+    }catch(error){
+        console.log(error)
+        return {message: "Internal server error"}
+    }
+}
+
+export const insertBlood = async (bags:number, location:string, rh:string, type:string) => {
+    try{
+        const createBlood: Blood = await prisma.blood.create({
+            data: {  
+                bags,
+                location,
+                rh, 
+                type
+
+            }
+        })
+        console.log(createBlood)
+        return createBlood
+    }catch(error){
+        console.log(error)
+        return {message: "Internal server error"}
+    }
+}
