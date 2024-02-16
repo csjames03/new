@@ -1,7 +1,7 @@
 
 type Props = {
     bt: string
-    stock: string
+    stock: number
 }
 
 

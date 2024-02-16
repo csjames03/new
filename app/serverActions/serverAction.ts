@@ -111,21 +111,21 @@ const updatingApprovedBloodRequest = async (requestedBags: number, type: string,
                 rh,
             }
         })
+        console.log("The blood itself",bloodFromBank[0].bags)
         const value = bloodFromBank[0].bags - requestedBags
+        //console.log(value)
 
         const updatedBlood = await prisma.bloodBank.update({
             where:{
                 id: bloodFromBank[0].id
             },
             data:{
-                bags: value,
-                rh,
-                type
+                bags: value
             }
 
         })
 
-        console.log(updatedBlood)
+       // console.log(updatedBlood)
         return updatedBlood
         
     }catch(error){
@@ -138,10 +138,15 @@ const updatingBloodForDonates = async (donatedBags: number, type: string, rh: st
     try{
         const bloodFromBank = await prisma.blood.findMany({
             where:{
-                type,
-                rh,
+                type: {
+                    equals: type
+                },
+                rh:{
+                    equals: rh
+                }
             }
         })
+        console.log(bloodFromBank)
 
         if(!bloodFromBank){
             console.log("No blood from bank found with type " + type +" rh "+ rh)
@@ -159,7 +164,7 @@ const updatingBloodForDonates = async (donatedBags: number, type: string, rh: st
 
         })
 
-        console.log(updatedBlood)
+        //console.log(updatedBlood)
         return updatedBlood
         
     }catch(error){

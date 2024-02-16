@@ -5,8 +5,9 @@ import DownloadForm from "@/app/components/DownloadForm"
 import BloodTypesContainer from "@/app/components/BloodTypesContainer"
 import DonorsInfoContainer from "@/app/components/DonorsInfoContainer"
 import DonationsModal from "@/app/components/DonationsModal"
+import { getBloodBank } from "@/app/serverActions/serverAction"
 
-const Donations = () => {
+const Donations = async () => {
     const user = "admin"
     const recieved = RecievedData
     return (

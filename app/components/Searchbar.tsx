@@ -5,23 +5,11 @@ import Link from "next/link"
 import { getAllDonors, getAllHospitals, getAllBloods, insertBlood, createBloodBank, getBloodBank} from "../serverActions/serverAction"
 
 const Searchbar = () =>{
-    const [search, setSearch] = useState("")
-    const inputRef = useRef<HTMLInputElement>(null)
+    const [keyword, setKeyword] = useState<string>('')
     const searchHandler = async(event : React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault()
-        const insert = await insertBlood(10, "Iligan City", "+", "A")
-        console.log(insert)
-        const after = await getBloodBank()
-        console.log(after)
-    }
-
-    const clickSearchHandler = async () => {
-        if(inputRef.current){
-            inputRef.current.focus()
-        }
-        console.log(search)
-        const before = await getBloodBank()
-        console.log(before)
+        // Declare the 'search' variable
+        const searchData: { id: string; bags: number; location: string; rh: string; type: string; } = await getData(keyword);
     }
 
     return(
@@ -34,9 +22,9 @@ const Searchbar = () =>{
                     <span className="text-red-700">M</span>anagement <span className="text-red-700">S</span>ystem
                 </p>
             </Link>
-            <div onClick={clickSearchHandler} className="w-[200px] lg:w-96 rounded-full bg-slate-300 px-3 py-1 flex gap-2">
-                <Image onClick={clickSearchHandler} src={'./bi_search.svg'} width={'20'} height={'20'} alt="Search Icon"/>
-                <input ref={inputRef} className="bg-transparent outline-none text-black w-full h-full py-2" onChange={(event)=>{ setSearch(event.target.value)}} type="text"  />
+            <div  className="w-[200px] lg:w-96 rounded-full bg-slate-300 px-3 py-1 flex gap-2">
+                <Image  src={'./bi_search.svg'} width={'20'} height={'20'} alt="Search Icon"/>
+                <input className="bg-transparent outline-none text-black w-full h-full py-2" type="text" onChange={(e)=>{setKeyword(e.target.value)}} />
             </div>
             <div className="p-2 w-10 h-10 rounded-full flex justify-center items-center bg-slate-300 mx-1 md:mx-3 lg:mx-5 cursor-pointer">
                 <Image width={20} height={20} src={`./bi_bell.svg`} alt="Bell Icon"/>
@@ -46,6 +34,20 @@ const Searchbar = () =>{
             </div>
         </form>
     )
+}
+
+const getData = async (keyword: string): Promise<{ id: string; bags: number; location: string; rh: string; type: string; }> => {
+    const response = await fetch('/api/blood/specific', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ "keyword": keyword})
+    })
+    console.log(keyword)
+    const k = await response.json()
+    console.log(k)
+    return k;
 }
 
 export default Searchbar
